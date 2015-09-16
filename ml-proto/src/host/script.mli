@@ -8,6 +8,8 @@ and command' =
   | AssertInvalid of Ast.modul * string
   | Invoke of string * Ast.expr list
   | AssertEq of string * Ast.expr list * Ast.expr
+  | AssertEqBits of string * Ast.expr list * Ast.expr
+  | AssertNaN of string * Ast.expr list
   | AssertFault of string * Ast.expr list * string
 
 type script = command list

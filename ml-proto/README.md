@@ -228,7 +228,9 @@ script: <cmd>*
 cmd:
   <module>                                             ;; define, validate, and initialize module
   ( invoke <name> <expr>* )                            ;; invoke export and print result
-  ( assert_eq (invoke <name> <expr>* ) <expr> )        ;; assert expected results of invocation
+  ( assert_eq (invoke <name> <expr>* ) <expr> )        ;; assert expected integer result of invocation
+  ( assert_eq_bits (invoke <name> <expr>* ) <expr> )   ;; assert expected floating point numeric result of invocation
+  ( assert_nan (invoke <name> <expr>* ))               ;; assert expected floating point nan result of invocation
   ( assert_fault (invoke <name> <expr>* ) <failure> )  ;; assert invocation faults with given failure string
   ( assert_invalid <module> <failure> )                ;; assert invalid module with given failure string
 ```

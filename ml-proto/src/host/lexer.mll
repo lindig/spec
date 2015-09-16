@@ -253,6 +253,8 @@ rule token = parse
 
   | "assert_invalid" { ASSERTINVALID }
   | "assert_eq" { ASSERTEQ }
+  | "assert_eq_bits" { ASSERTEQBITS }
+  | "assert_nan" { ASSERTNAN }
   | "assert_fault" { ASSERTFAULT }
   | "invoke" { INVOKE }
 
