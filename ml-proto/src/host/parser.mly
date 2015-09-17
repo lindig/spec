@@ -38,7 +38,9 @@ let literal at s t =
     | Types.Int64Type -> Values.Int64 (Int64.of_string s) @@ at
     | Types.Float32Type -> Values.Float32 (Float32.of_string s) @@ at
     | Types.Float64Type -> Values.Float64 (Float64.of_string s) @@ at
-  with _ -> Error.error at "constant out of range"
+  with
+    | Failure reason -> Error.error at ("constant out of range: " ^ reason)
+    | _ -> Error.error at "constant out of range"
 
 
 (* Symbolic variables *)
